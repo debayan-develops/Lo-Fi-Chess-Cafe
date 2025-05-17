@@ -51,32 +51,8 @@ cd backend
 npm install # or yarn install
 npm run start:dev # or yarn start:dev
 
-## 📝 Project Summary
+### **3. Frontend Setup**
 
-This project involves building a Lo-Fi Chess Café web application with a Next.js frontend, a NestJS backend, and a unique aesthetic. Here's a summary of the key steps and features implemented and issues resolved during our work:
-
-* **Project Setup:** Established the basic structure with separate `frontend` (Next.js/Tailwind/DaisyUI) and `backend` (NestJS) directories.
-* **Tailwind CSS Configuration:** Troubleshooted and resolved "Unknown at rule @tailwind" errors by ensuring correct PostCSS configuration (`postcss.config.mjs` using `@tailwindcss/postcss` or `postcss.config.js` with `tailwindcss: {}` depending on the environment).
-* **Git Configuration:** Fixed Git errors related to submodules (`error: 'backend/' does not have a commit checked out`) by guiding the removal of the `.git` folder from the `backend` directory for a single main repository. Provided steps for standard Git workflow (init, add, commit, remote, push).
-* **.env.local ignored:** Added `.env.local` to the `.gitignore` file to prevent sensitive information from being committed.
-* **Chessboard Sizing and Positioning:**
-    * Initially addressed chessboard overflow issues by adjusting maximum width (`max-w-*`) classes on its container.
-    * Attempted superimposing the interactive board over a background image by using `position: absolute` on the chessboard container and adjusting `top`/`left`/`transform`.
-    * Reverted to a standard layout based on user preference, placing the chessboard back into normal flow and centering it horizontally within a main content column using `mx-auto` and vertical margin (`my-*`). Adjusted vertical margin for spacing.
-* **Checkmate Display:** Implemented logic using `chess.js` to detect checkmate (and draw) conditions after moves and display a "Checkmate! Game Over." (or "Draw!") message on the screen.
-* **Game Modes Selection:**
-    * Added a UI with buttons ("Player vs Player" and "Vs Computer") to select game modes in `app/page.tsx`.
-    * Added state management (`useState`) in `app/page.tsx` to track the selected mode.
-    * Passed the selected `gameMode` as a prop to `ChessBoardComponent.tsx`.
-    * Modified `ChessBoardComponent.tsx` to conditionally handle game logic: use Socket.io for PvP and include a placeholder function (`makeComputerMove`) for Vs Computer mode (currently makes random moves).
-* **Frontend Client Component:** Resolved "React hook only works in a client component" error in `app/page.tsx` by adding the `"use client";` directive at the top of the file.
-* **TypeScript Errors:** Fixed TypeScript errors in `ChessBoardComponent.tsx` related to potentially null socket instances within `useEffect` cleanup by restructuring the effect hook's variable declaration and cleanup logic.
-* **Background and Aesthetics:**
-    * Set a background image on the main page container (`<main>` element).
-    * Added custom retro-style CSS rules (`.card`, `.head`, `.content`, `.button`) to `globals.css`. Troubleshooted and fixed syntax errors in the added CSS (e.g., replacing `translate` with `transform`).
-    * Applied the `.button` class to the mode selection buttons and the reset button for retro styling.
-    * Added emojis to various text elements for visual appeal.
-    * Set text color (title and "Select Mode:") to white using inline styles after attempts with Tailwind classes were overridden.
-* **Layout Refinement:** Restructured `app/page.tsx` to create a dedicated header area at the top-left (containing the title and mode selectors) and a separate, centered main content area below it (containing the chessboard and placeholder).
-
-This summary covers the main features added and problems solved, giving a clear picture of the project's development during our conversation.
+```bash
+cd frontend
+npm install    # or yarn install
